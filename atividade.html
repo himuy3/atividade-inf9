@@ -1,0 +1,90 @@
+!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Compras</title>
+    <link rel="stylesheet" type="text/css" href="trabinf9.css" media="screen" />
+
+</head>
+
+<body>
+
+    <h1>Calculadora de Compras</h1>
+
+    <label for="codigo">Código do Produto:</label>
+    <input type="number" id="codigo" placeholder="Informe o código">
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" placeholder="Informe a quantidade">
+
+    <button onclick="calcularTotal()">Calcular Total</button>
+
+    <p id="resultado"></p>
+
+
+    <div id="precos">
+        <p id="bolacha"> bolacha R$ 3,50 kg</p>
+        <p id="berinjela"> berinjela R$ 3,00 kg</p>
+        <p id="bisteca"> Carne de bisteca R$ 20,00 kg</p>
+    </div>
+
+
+    <script>
+
+        const produtos = [
+            { codigo: 1, nome: 'bolacha', preco: 3.5 },
+            { codigo: 2, nome: 'berinjela', preco: 3.0 },
+            { codigo: 3, nome: 'bisteca', preco: 20.0 },
+        ];
+
+        function calcularTotal() {
+
+            const codigoProduto = parseInt(document.getElementById('codigo').value);
+            const quantidade = parseInt(document.getElementById('quantidade').value);
+
+
+            const produtoSelecionado = produtos.find(produto => produto.codigo === codigoProduto);
+
+            let total = 0;
+            switch (codigoProduto) {
+                case 1:
+                    total = calcularTotalProdutoA(quantidade, produtoSelecionado.preco);
+                    break;
+                case 2:
+                    total = calcularTotalProdutoB(quantidade, produtoSelecionado.preco);
+                    break;
+                case 3:
+                    total = calcularTotalProdutoC(quantidade, produtoSelecionado.preco);
+                    break;
+                default:
+                    document.getElementById('resultado').innerText = 'Código de produto inválido';
+                    return;
+            }
+
+            document.getElementById('resultado').innerText = `Total a pagar por ${quantidade} ${produtoSelecionado.nome}(s): R$ ${total.toFixed(2)}`;
+
+
+        }
+
+        function calcularTotalProdutoA(quantidade, preco) {
+
+            return quantidade * preco;
+        }
+
+        function calcularTotalProdutoB(quantidade, preco) {
+
+            return quantidade * preco;
+        }
+
+        function calcularTotalProdutoC(quantidade, preco) {
+
+            return quantidade * preco;
+        }
+    </script>
+
+
+</body>
+
+</html>
