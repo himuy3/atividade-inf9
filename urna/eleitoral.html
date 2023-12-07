@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Simulador de Urna Eleitoral</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Simulador de Urna Eleitoral</h1>
+    <div id="candidates-list">
+    </div>
+    <div id="voting-section" class="hidden">
+      <h2>Votação</h2>
+      <form id="voting-form">
+        <button type="button" onclick="submitVote()">Votar</button>
+      </form>
+    </div>
+    <div id="result-section" class="hidden">
+      <h2>Resultado da Votação</h2>
+      <div id="result-message"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
